@@ -18,8 +18,6 @@ def scelta_Stazione(x):
     else :
         print('Scelta errata canale non presente nella lista dei possibili  ... ')
 
-
-
 while True:
 
     try :
