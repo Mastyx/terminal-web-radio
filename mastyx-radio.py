@@ -13,7 +13,7 @@ def scelta_Stazione(x):
     elif int(x) == 4 :
         os.system("mpv http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8")
     else :
-        print('Scelta errata canale non trovato ... ')
+        print('Scelta errata canale non presente nella lista dei possibili  ... ')
 
 
 
