@@ -1,6 +1,5 @@
 import os
 
-
 def scelta_Stazione(x):
     if int(x) == 0 :
         os.system("mpv http://icestreaming.rai.it/1.mp3")
@@ -14,8 +13,6 @@ def scelta_Stazione(x):
         os.system("mpv http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8")
     else :
         print('Scelta errata canale non presente nella lista dei possibili  ... ')
-
-
 
 while True:
 
