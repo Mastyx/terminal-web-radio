@@ -1,45 +1,49 @@
 import os, sys
+from webradio_link import stazioni
 
-stazioni = {
-    "Radio1":"mpv http://icestreaming.rai.it/1.mp3",
-    "Radio2":"mpv http://icestreaming.rai.it/2.mp3",
-
-    "Virgin_Radio":"mpv http://icecast.unitedradio.it/Virgin.mp3",
-    "Radio_Deejay":"mpv http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8",
-}
-
-
-#
-# for i in stazioni:
-#
 
 class TerminalRadio:
+
     def __init__(self, radio="Radio1"):
         self.radio = radio
 
     def list_radio(self):
         print("--------------------------")
-        print("| List radio names       |")
+        print("|    List radio names    |")
         print("--------------------------")
+        # x = "Virgin Radio"
+        # print(stazioni[x])
         for i in stazioni:
-            print(" - ", i)
+            print(i)
 
     def run(self):
-        os.system(stazioni[self.radio])
+        self.list_radio()
+        print("--------------------------")
+        select = input("- insert id radio : ")
+        print("--------------------------")
+        if select == '0':
+            sys.exit()
+        else :
+            os.system(stazioni[select])
 
     def add_radio(self):
         name = input("inserisci il nome : ")
         url = input("inserisci l'url valido ")
         stazioni[name] = "mpv " + url
+        data = open("webradio.txt","a")
+        data.write(f"\n{name}:mpv {url}")
+        data.close()
+
+    def read_file(self):
+        data = open("webradio.txt","r").read()
+        print(data)
 
 
 
+x = TerminalRadio()
 
-
-x = TerminalRadio("Radio1")
-
-x.list_radio()
-x.run()
+while True:
+    x.run()
 
 #
 #
