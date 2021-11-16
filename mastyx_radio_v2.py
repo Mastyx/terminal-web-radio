@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, time
 from webradio_link import stazioni
 
 
@@ -8,8 +8,9 @@ class TerminalRadio:
         self.radio = radio
 
     def list_radio(self):
+        """ channel name list """
         print("--------------------------")
-        print("|    List radio names    |")
+        print("|    Channel list name   |")
         print("--------------------------")
         # x = "Virgin Radio"
         # print(stazioni[x])
@@ -17,16 +18,27 @@ class TerminalRadio:
             print(i)
 
     def run(self):
+        """ run """
         self.list_radio()
         print("--------------------------")
-        select = input("- insert id radio : ")
+        print("Scrivi il nome della radio")
+        print(" [q] --- per cambio canale")
+        print(" [0] --- per chiudere app ")
+        print("--------------------------")
+        select = input()
         print("--------------------------")
         if select == '0':
             sys.exit()
         else :
-            os.system(stazioni[select])
+            try :
+                os.system(stazioni[select])
+            except (ValueError, KeyError) :
+                print("Valore Inserito non Valido !!!\n\n\n")
+                time.sleep(2)
+
 
     def add_radio(self):
+        """add radio channel in list  """
         name = input("inserisci il nome : ")
         url = input("inserisci l'url valido ")
         stazioni[name] = "mpv " + url
@@ -34,9 +46,6 @@ class TerminalRadio:
         data.write(f"\n{name}:mpv {url}")
         data.close()
 
-    def read_file(self):
-        data = open("webradio.txt","r").read()
-        print(data)
 
 
 
