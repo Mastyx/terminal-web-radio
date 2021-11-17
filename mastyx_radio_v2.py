@@ -9,7 +9,7 @@ class TerminalRadio:
 
     def list_radio(self):
         """ channel name list """
-        print("--------------------------")
+        print("\n--------------------------")
         print("|    Channel list name   |")
         print("--------------------------")
 
@@ -29,9 +29,9 @@ class TerminalRadio:
         """ run """
         self.list_radio()
         print("\n----------------------------------------------------")
-        print("Scrivi il nome della radio")
-        print(" [q] --- per cambio canale | [l] --- lista canali")
-        print(" [0] --- per chiudere app  | [a] --- aggiungi canale")
+        print("WRITE THE NAME OF THE RADIO")
+        print(" [q] --- change channel    | [l] --- Channel list")
+        print(" [0] --- close application | [a] --- Add channel ")
         print("----------------------------------------------------")
         select = input("-> ")
         if select == '0':
