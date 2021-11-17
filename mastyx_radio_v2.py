@@ -12,27 +12,36 @@ class TerminalRadio:
         print("--------------------------")
         print("|    Channel list name   |")
         print("--------------------------")
+
         # x = "Virgin Radio"
         # print(stazioni[x])
+        colonne = 0
         for i in stazioni:
-            print(i)
+            colonne = colonne + 1
+            if colonne%3 == 0:
+                print("\t| ", i,end="\n")
+            else :
+                print("\t| ", i,end="")
+
+
 
     def run(self):
         """ run """
         self.list_radio()
-        print("--------------------------")
+        print("\n----------------------------------------------------")
         print("Scrivi il nome della radio")
-        print(" [q] --- per cambio canale")
-        print(" [0] --- per chiudere app ")
-        print("--------------------------")
-        select = input()
-        print("--------------------------")
+        print(" [q] --- per cambio canale | [l] --- lista canali")
+        print(" [0] --- per chiudere app  | [a] --- aggiungi canale")
+        print("----------------------------------------------------")
+        select = input("-> ")
         if select == '0':
             sys.exit()
+        elif select == "a":
+            self.add_radio()
+        elif select == "l":
+            self.list_radio()
         else :
             try :
-                print(" [q] --- per cambio canale")
-                print(" [0] --- per chiudere app ")
                 os.system(stazioni[select])
             except (ValueError, KeyError) :
                 print("Valore Inserito non Valido !!!\n\n\n")
@@ -42,11 +51,11 @@ class TerminalRadio:
     def add_radio(self):
         """add radio channel in list  """
         name = input("inserisci il nome : ")
-        url = input("inserisci l'url valido ")
+        url = input("inserisci l'url valido : ")
         stazioni[name] = "mpv " + url
-        data = open("webradio.txt","a")
-        data.write(f"\n{name}:mpv {url}")
-        data.close()
+        # data = open("webradio.txt","a")
+        # data.write(f"\n{name}:mpv {url}")
+        # data.close()
 
 
 
