@@ -60,7 +60,11 @@ class TerminalRadio:
 
 
 
-x = TerminalRadio()
 
-while True:
-    x.run()
+def main():
+    myTerminalRadio= TerminalRadio()
+    while True:
+        myTerminalRadio.run()
+
+if __name__ == "__main__":
+    main()
