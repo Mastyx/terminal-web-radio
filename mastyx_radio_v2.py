@@ -5,6 +5,7 @@ class TerminalRadio:
 
     def __init__(self, radio="Radio1"):
         self.radio = radio
+        # popoliamo il dizionari con la lista delle stazioni
         load_stazioni = open("mydict.dic", "r")
         self.stazioni = json.load(load_stazioni)
 
